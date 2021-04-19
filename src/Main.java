@@ -79,6 +79,36 @@ public class Main {
 
     }
 
+    static int [] sort(int [] a)
+
+    {
+        int counter=0;
+        for(int i=0;i< a.length;i++)
+        {
+            if(a[i]%3==0)
+            {
+                counter=counter+1;
+            }
+
+        }
+        if(counter==0){
+            return null;
+        }
+        int [] arr = new int[counter];
+
+        for(int i=0, j=0;i< arr.length;i++)
+        {
+            if(arr[i]%3==0)
+            {
+                arr[j] = a[i];
+                j +=1;
+            }
+
+        }
+        return arr;
+
+    }
+
   static void print(int [] array)
   {
       for(int i=0; i< array.length; i++)
@@ -89,8 +119,8 @@ public class Main {
   }
 
     public static void main(String[] args) {
-        int [] array1 = generateRandomeArray(25);
-        int [] array2 = generateRandomeArray(50);
+        int [] array1 = generateRandomeArray(10);
+        int [] array2 = generateRandomeArray(15);
         print(array1);
         print(array2);
         int [] filteredArray1 = filterEven(array1);
@@ -101,6 +131,8 @@ public class Main {
         int [] filteredArray4 = filterOdd(array2);
         print(filteredArray3);
         print(filteredArray4);
+        int [] filteredArray5 = sort(array1);
+        print(filteredArray5);
 
     }
 
