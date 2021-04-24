@@ -6,6 +6,7 @@
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 
 public class Main {
@@ -79,13 +80,12 @@ public class Main {
 
     }
 
-    static int [] sort(int [] a)
-
+    static int [] divideTen(int [] array, int a)
     {
-        int counter=0;
-        for(int i=0;i< a.length;i++)
+        int counter =0;
+        for(int i=0;i< array.length;i++)
         {
-            if(a[i]%3==0)
+            if(array[i]%a==0)
             {
                 counter=counter+1;
             }
@@ -94,28 +94,42 @@ public class Main {
         if(counter==0){
             return null;
         }
-        int [] arr = new int[counter];
+        int [] arrayEven = new int[counter];
 
-        for(int i=0, j=0;i< arr.length;i++)
+        for(int i=0, j=0;i< array.length;i++)
         {
-            if(arr[i]%3==0)
+            if(array[i]%a==0)
             {
-                arr[j] = a[i];
+                arrayEven[j] = array[i];
                 j +=1;
             }
 
         }
-        return arr;
+        return arrayEven;
 
     }
 
+
   static void print(int [] array)
   {
+      if (array==null){
+          System.out.println("Нет массива отвечающего нужным параметрам");
+          return;
+      }
+
       for(int i=0; i< array.length; i++)
       {
           System.out.print(array[i] + " ");
       }
       System.out.println();
+  }
+
+
+  static int input(){
+
+      Scanner scanner = new Scanner(System.in);
+      int a = scanner.nextInt();
+      return a;
   }
 
     public static void main(String[] args) {
@@ -131,9 +145,8 @@ public class Main {
         int [] filteredArray4 = filterOdd(array2);
         print(filteredArray3);
         print(filteredArray4);
-        int [] filteredArray5 = sort(array1);
+        int [] filteredArray5 = divideTen(array1, input());
         print(filteredArray5);
-
     }
 
 }
